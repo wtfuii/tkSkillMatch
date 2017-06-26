@@ -7,6 +7,7 @@ import bodyParser from 'body-parser'
 import webpack from 'webpack'
 import webpackDevMiddleware from 'webpack-dev-middleware'
 import webpackHotMiddleware from 'webpack-hot-middleware'
+import mongoose from 'mongoose'
 
 import router from './router'
 import config from '../../webpack.config'
@@ -53,6 +54,20 @@ app.use(function(err, req, res, next) {
   })
 })
 
-app.listen(4000)
+connect()
+  .on('error', console.log)
+  .on('disconnected', connect)
+  .once('open', listen);
+
+function connect () {
+  var options = { server: { socketOptions: { keepAlive: 1 } } }
+  return mongoose.connect('mongodb://localhost/test', options).connection
+}
+
+function listen () {
+  if (app.get('env') === 'test') return
+  app.listen(4000)
+  console.log('Express app started on port ' + 4000)
+}
 
 export default app
