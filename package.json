@@ -39,6 +39,7 @@
     "vue-router": "^2.2.0",
     "vue-style-loader": "^1.0.0",
     "vue-template-compiler": "^2.1.10",
+    "vuetify": "^0.12.7",
     "webpack": "^1.14.0",
     "webpack-dev-middleware": "^1.9.0",
     "webpack-hot-middleware": "^2.15.0"
