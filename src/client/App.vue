@@ -14,7 +14,7 @@
               <v-icon>{{ item.icon }}</v-icon>
             </v-list-tile-action>
             <v-list-tile-content>
-              <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+              <v-list-tile-title><router-link :to="{ name: item.route }" class="routerLink">{{ item.title }}</router-link></v-list-tile-title>
             </v-list-tile-content>
           </v-list-tile>
         </v-list-item>
@@ -43,7 +43,7 @@
         ],
         specialistItems: [
           { title: 'Home', icon: 'dashboard' },
-          { title: 'My Skills', icon: 'account_box' },
+          { title: 'My Skills', icon: 'account_box', route: 'mySkills' },
           { title: 'Search projects', icon: 'search' }
         ],
         isManager: false,
@@ -58,6 +58,8 @@
   }
 </script>
 
-<style>
-
+<style scoped="true">
+  .routerLink {
+    text-decoration: none;
+  }
 </style>
