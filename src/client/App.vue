@@ -14,13 +14,13 @@
               <v-icon>{{ item.icon }}</v-icon>
             </v-list-tile-action>
             <v-list-tile-content>
-              <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+              <v-list-tile-title><router-link :to="{ name: item.route }" class="routerLink">{{ item.title }}</router-link></v-list-tile-title>
             </v-list-tile-content>
           </v-list-tile>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar class="blue" light>
+    <v-toolbar class="light-blue" light>
       <v-toolbar-title>ThyssenKrupp Match</v-toolbar-title>
     </v-toolbar>
     <main>
@@ -37,13 +37,13 @@
       return {
         drawer: null,
         managerItems: [
-          { title: 'Home', icon: 'dashboard' },
+          { title: 'Home', icon: 'home', route: 'Home' },
           { title: 'My projects', icon: 'question_answer' },
           { title: 'Search specialists', icon: 'search' }
         ],
         specialistItems: [
-          { title: 'Home', icon: 'home' },
-          { title: 'My Skills', icon: 'account_box' },
+          { title: 'Home', icon: 'home', route: 'Home' },
+          { title: 'My Skills', icon: 'account_box', route: 'mySkills' },
           { title: 'Search projects', icon: 'search' }
         ],
         isManager: false,
@@ -58,6 +58,8 @@
   }
 </script>
 
-<style>
-
+<style scoped="true">
+  .routerLink {
+    text-decoration: none;
+  }
 </style>

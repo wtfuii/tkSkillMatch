@@ -10,7 +10,7 @@
                     <v-card-text>
                         <v-text-field label="Skill" required></v-text-field>
                         <v-slider thumb-label step="1" max="2"></v-slider>
-                        <small>*indicates required field</small>
+                        <small>*Required</small>
                     </v-card-text>
                 </v-card-row>
                 <v-card-row actions>
