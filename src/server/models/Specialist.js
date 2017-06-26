@@ -1,12 +1,12 @@
 
 import mongoose from 'mongoose'
 
-const SkillSchema = new mongoose.Schema({
+export const SkillSchema = new mongoose.Schema({
   skill: {type: String, required: true},
   level: {type: Number}
 })
 
-const UserSchema = new mongoose.Schema({
+export const UserSchema = new mongoose.Schema({
   name: {type: String, required: true},
   password: {type: String, required: true},
   email: {type: String, required: true},
