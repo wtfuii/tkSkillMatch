@@ -34,7 +34,11 @@
 </template>
 
 <script>
+  import axios from 'axios'
   export default {
+    created: function() {
+      this.getUsers()
+    },
     data () {
       return {
         search: '',
@@ -44,6 +48,23 @@
           {text: 'Further skills', value: 'further'}
         ],
         items: []
+      }
+    },
+    methods: {
+      getUsers() {
+        axios.get('/user').then((res) => {
+          this.items = res.data
+        })
+      }
+    },
+    computed: {
+      usersBySkills() {
+        const result = []
+        this.items.map((user) => {
+          user.skills.map((skills) {
+            result.push()
+          })
+        })
       }
     }
   }

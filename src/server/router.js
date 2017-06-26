@@ -8,6 +8,13 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'ThyssenKrupp Match' })
 })
 
+router.get('/user', (req, res, next) => {
+  Specialist.find({}, function(err, docs) {
+    logError(err)
+    res.json(docs)
+  })
+})
+
 router.get('/user/:email', (req, res, next) => {
   const email = req.params.email
   const user = Specialist.findOne({email: email}, function (err, user) {

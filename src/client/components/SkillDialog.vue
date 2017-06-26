@@ -1,7 +1,9 @@
 <template>
-    <v-layout row justify-center>
+    <v-layout row justify-left>
         <v-dialog v-model="dialog">
-            <v-btn primary light slot="activator">Add Skill</v-btn>
+            <v-btn floating class="indigo bottom-right" slot="activator">
+                <v-icon light>add</v-icon>
+            </v-btn>
             <v-card>
                 <v-card-row>
                     <v-card-title>Add Skill</v-card-title>
@@ -45,3 +47,12 @@
     }
   }
 </script>
+
+<style scoped="true">
+    .bottom-right {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 100;
+    }
+</style>
