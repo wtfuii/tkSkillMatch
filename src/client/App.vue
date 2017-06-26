@@ -20,8 +20,8 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar class="cyan" light>
-      <v-toolbar-title>tkSkillMatch</v-toolbar-title>
+    <v-toolbar class="blue" light>
+      <v-toolbar-title>ThyssenKrupp Match</v-toolbar-title>
     </v-toolbar>
     <main>
       <v-container fluid>
@@ -42,7 +42,7 @@
           { title: 'Search specialists', icon: 'search' }
         ],
         specialistItems: [
-          { title: 'Home', icon: 'dashboard' },
+          { title: 'Home', icon: 'home' },
           { title: 'My Skills', icon: 'account_box' },
           { title: 'Search projects', icon: 'search' }
         ],
