@@ -8,7 +8,7 @@
       </v-list>
       <v-divider></v-divider>
       <v-list dense class="pt-0">
-        <v-list-item v-for="item in items" :key="item">
+        <v-list-item v-if="user" v-for="item in items" :key="item">
           <v-list-tile>
             <v-list-tile-action>
               <v-icon>{{ item.icon }}</v-icon>
@@ -23,9 +23,9 @@
       </v-list>
     </v-navigation-drawer>
     <v-toolbar class="light-blue" light>
-      <v-toolbar-title>ThyssenKrupp Match</v-toolbar-title>
+      <v-toolbar-title>we.match</v-toolbar-title>
         <v-spacer></v-spacer>
-        <span v-if="user">{{user.name}}</span>
+        <span v-if="user" class="user-toolbar">{{user.name}}</span>
         <v-btn v-if="user" @click.native="logout()">
           Logout
         </v-btn>
@@ -49,6 +49,7 @@
       bus.$on('logout', () => {
         this.logout()
       })
+      this.user = authService().getUser()
     },
     data () {
       return {
@@ -64,18 +65,18 @@
           { title: 'My Skills', icon: 'account_box', route: 'mySkills' },
           { title: 'Search projects', icon: 'search' }
         ],
-        isManager: true,
         right: null
       }
     },
     computed: {
       items: function () {
-        return this.isManager ? this.managerItems : this.specialistItems
+        return this.user && this.user.isManager ? this.managerItems : this.specialistItems
       }
     },
     methods: {
       logout: function() {
         this.$data.user = authService().logout()
+        this.$router.push('/')
       }
     }
   }
@@ -84,5 +85,10 @@
 <style scoped="true">
   .routerLink {
     text-decoration: none;
+  }
+
+  .user-toolbar {
+    text-transform: uppercase;
+    color: white;
   }
 </style>

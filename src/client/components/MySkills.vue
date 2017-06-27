@@ -10,7 +10,7 @@
         >
             <template slot="items" scope="props">
                 <td class="text-xs-right">{{ props.item.skill }}</td>
-                <td class="text-xs-right">Level {{props.item.level}}</td>
+                <td class="text-xs-right">Level {{props.item.level + 1}}</td>
                 <td class="text-xs-right">
                     <edit-skill-dialog :item="Object.assign({}, props.item)" v-on:saved="closeEdit"></edit-skill-dialog>
                 </td>
@@ -32,6 +32,13 @@
     },
     created: function() {
       this.getSkills()
+    },
+    beforeRouteEnter: (to, from, next) => {
+      if (!authService().getUser() || authService().getUser().isManager) {
+        next('/')
+      } else {
+        next()
+      }
     },
     data () {
       return {

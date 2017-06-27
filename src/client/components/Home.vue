@@ -2,7 +2,7 @@
   <div>
     
     <h2>we.match</h2>
-    <p>Welcome to ThyssenKrupps skill matching platform</p>
+    <p>Welcome to the ThyssenKrupp skill matching platform</p>
   </div>
 </template>
 
