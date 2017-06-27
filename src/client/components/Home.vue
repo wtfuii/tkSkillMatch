@@ -1,7 +1,8 @@
 <template>
   <div>
     
-    <h2>{{ msg }}</h2>
+    <h2>we.match</h2>
+    <p>Welcome to ThyssenKrupps skill matching platform</p>
   </div>
 </template>
 
@@ -13,7 +14,7 @@ export default {
       // with hot-reload because the reloaded component
       // preserves its current state and we are modifying
       // its initial state.
-      msg: 'Hello World!'
+      msg: 'Home World!'
     }
   }
 }
